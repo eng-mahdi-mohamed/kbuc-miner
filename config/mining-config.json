@@ -1,0 +1,253 @@
+{
+  "system": {
+    "name": "KBUC Mining System",
+    "version": "1.0.0",
+    "environment": "production",
+    "debug": false,
+    "logLevel": "info",
+    "testMode": false
+  },
+  "api": {
+    "host": "localhost",
+    "port": 8001,
+    "timeout": 30000,
+    "retryAttempts": 3,
+    "retryDelay": 5000
+  },
+  "mining": {
+    "default_ticket_data": "0000000000000000000000000000000000000000000000000000000000000000",
+    "default_reward_address": "89d66c0a217e90f520ca156d22ead95994ba437a",
+    "default_difficulty_target": "000000ffffff0000000000000000000000000000000000000000000000000000",
+    "default_mining_type": 0,
+    "autoRestart": false,
+    "restartDelay": 5000,
+    "maxRestartAttempts": 10,
+    "max_time_seconds": 1800,
+    "auto_restart": false,
+    "restart_delay_seconds": 2,
+    "max_restart_attempts": 0,
+    "restart_on_success": false,
+    "restart_on_failure": false,
+    "mining_session_timeout": 1800,
+    "support_sub_solutions": true,
+    "broadcast_all_solutions": true,
+    "blockchain": {
+      "defaultTicketData": "0000000000000000000000000000000000000000000000000000000000000000",
+      "defaultRewardAddress": "89d66c0a217e90f520ca156d22ead95994ba437a",
+      "defaultDifficultyTarget": "000000ffffff0000000000000000000000000000000000000000000000000000",
+      "defaultMiningType": 1
+    },
+    "session": {
+      "maxTimeSeconds": 1800,
+      "timeout": 1200,
+      "testModeTimeout": 120,
+      "maxSolutionsPerSession": 10,
+      "continueAfterSolution": true
+    },
+    "restart": {
+      "autoRestart": true,
+      "delaySeconds": 5,
+      "maxAttempts": 10,
+      "onSuccess": false,
+      "onFailure": false
+    },
+    "solutions": {
+      "supportSubSolutions": true,
+      "broadcastAll": true
+    },
+    "broadcast": {
+      "enabled": true,
+      "mode": "immediate",
+      "batchSize": 5,
+      "batchTimeoutMs": 5000
+    }
+  },
+  "performance": {
+    "maxWorkers": 8,
+    "batchSize": 1000000,
+    "updateInterval": 5000,
+    "hashRateThreshold": 0.1,
+    "memoryThreshold": 80,
+    "cpuThreshold": 90,
+    "gpuBlocks": 512,
+    "workers": {
+      "maxCount": 8,
+      "updateInterval": 1000
+    },
+    "thresholds": {
+      "hashRate": 0.1,
+      "memory": 80,
+      "cpu": 90
+    }
+  },
+  "engines": {
+    "gpu": {
+      "enabled": true,
+      "priority": "high",
+      "webgl": true,
+      "webgpu": false,
+      "fallback": "cpu",
+      "batchSize": 100000,
+      "optimization": "performance",
+      "fallbackBatchSize": 10000,
+      "blocks": 4096
+    },
+    "cpu": {
+      "priority": "medium",
+      "threads": "auto",
+      "optimization": "performance",
+      "enabled": true,
+      "batchSize": 10000
+    }
+  },
+  "monitoring": {
+    "enabled": true,
+    "interval": 5000,
+    "metrics": {
+      "hashRate": true,
+      "cpuUsage": true,
+      "memoryUsage": true,
+      "temperature": false,
+      "powerConsumption": false,
+      "gpuUsage": true
+    },
+    "alerts": {
+      "enabled": true,
+      "hashRateDrop": 50,
+      "highCpuUsage": 90,
+      "highMemoryUsage": 85,
+      "lowHashRate": 0.1
+    }
+  },
+  "logging": {
+    "level": "info",
+    "file": "logs/mining.log",
+    "maxSize": "10m",
+    "maxFiles": 5,
+    "console": true,
+    "format": "json",
+    "rotation": {
+      "enabled": true,
+      "frequency": "daily"
+    }
+  },
+  "data": {
+    "solutionsPath": "data/solutions",
+    "statePath": "data/state",
+    "backupPath": "data/backup",
+    "autoBackup": true,
+    "backupInterval": 3600000
+  },
+  "security": {
+    "apiKey": "",
+    "rateLimit": {
+      "enabled": true,
+      "maxRequests": 100,
+      "windowMs": 60000
+    },
+    "cors": {
+      "enabled": true,
+      "origins": [
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "http://localhost:3000",
+        "http://127.0.0.1:3000"
+      ]
+    },
+    "authentication": {
+      "enabled": false,
+      "apiKey": ""
+    },
+    "headers": {
+      "securityHeaders": true
+    }
+  },
+  "notifications": {
+    "enabled": false,
+    "providers": {
+      "email": {
+        "enabled": false,
+        "smtp": {
+          "host": "",
+          "port": 587,
+          "secure": true,
+          "user": "",
+          "pass": ""
+        }
+      },
+      "webhook": {
+        "enabled": false,
+        "url": "",
+        "headers": {}
+      }
+    }
+  },
+  "support_hash_broadcast": {
+    "enabled": true,
+    "mode": "immediate",
+    "batch_size": 5,
+    "batch_timeout_ms": 5000,
+    "immediate_broadcast": true
+  },
+  "rpc": {
+    "host": "https://rpc.kbunet.net",
+    "port": 443,
+    "user": "",
+    "password": "",
+    "timeout": 30000
+  },
+  "modes": {
+    "gpu": {
+      "enabled": true,
+      "priority": "high",
+      "webgl": true,
+      "webgpu": false,
+      "fallback": "cpu"
+    },
+    "cpu": {
+      "priority": "medium",
+      "threads": "auto",
+      "optimization": "balanced"
+    }
+  },
+  "$schema": "./mining-config.schema.json",
+  "_metadata": {
+    "version": "2.0.0",
+    "lastModified": "2025-01-19",
+    "description": "KBUC Mining System - Optimized Configuration"
+  },
+  "network": {
+    "api": {
+      "host": "localhost",
+      "port": 8001,
+      "timeout": 30000,
+      "retryAttempts": 3,
+      "retryDelay": 5000
+    },
+    "rpc": {
+      "host": "https://rpc.kbunet.net",
+      "port": 443,
+      "timeout": 30000,
+      "connectionPool": {
+        "maxConnections": 10,
+        "keepAlive": true
+      }
+    }
+  },
+  "storage": {
+    "paths": {
+      "solutions": "data/solutions",
+      "state": "data/state",
+      "backup": "data/backup",
+      "logs": "logs"
+    },
+    "backup": {
+      "enabled": true,
+      "interval": 3600000,
+      "retention": {
+        "days": 30,
+        "maxFiles": 100
+      }
+    }
+  }
+}
